@@ -91,7 +91,13 @@
             <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Interactive Map</h2>
             
             <!-- Interactive Map -->
-            <div id="map" class="w-full h-64 mb-8"></div>
+            <div id="map" class="w-full h-64 mb-8">
+                <div class="flex map-responsive">
+                    <a href="https://g.page/academic-city-college?share" target="_blank" rel="noopener noreferrer">
+                        <img src="assets/img/acity-map.jpg" alt="Interactive Map">
+                    </a>
+                </div>
+            </div>
             <!-- End of Interactive Map -->
         </div>
     </div>
@@ -108,7 +114,7 @@
         const marker = new google.maps.Marker({
             position: { lat: 5.547745, lng: -0.178900 },
             map: map,
-            title: "Adwoa Fosu, Academic City University College",
+            title: "Academic City University College",
         });
     }
 </script>
