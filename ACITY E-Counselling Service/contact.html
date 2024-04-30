@@ -11,6 +11,9 @@
             height: 400px;
             width: 100%;
         }
+        gmp-map {
+        height: 50%;
+      }
     </style>
 </head>
 <body>
@@ -93,9 +96,9 @@
             <!-- Interactive Map -->
             <div id="map" class="w-full h-64 mb-8">
                 <div class="flex map-responsive">
-                    <a href="https://g.page/academic-city-college?share" target="_blank" rel="noopener noreferrer">
-                        <img src="assets/img/acity-map.jpg" alt="Interactive Map">
-                    </a>
+                    <gmp-map center="5.688824653625488,-0.20880529284477234" zoom="14" map-id="DEMO_MAP_ID" style="height: 400px; width: 100%;">
+                        <gmp-advanced-marker position="5.688824653625488,-0.20880529284477234" title="My location"></gmp-advanced-marker>
+                    </gmp-map>
                 </div>
             </div>
             <!-- End of Interactive Map -->
@@ -104,21 +107,7 @@
 </section>
 
 <!-- Google Maps JavaScript API -->
-<script>
-    function initMap() {
-        const map = new google.maps.Map(document.getElementById("map"), {
-            center: { lat: 5.6887607, lng: -0.2087597 },
-            zoom: 16,
-        });
-        
-        const marker = new google.maps.Marker({
-            position: { lat: 5.6887607, lng: 0.2087597 },
-            map: map,
-            title: "Academic City University College",
-        });
-    }
-</script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=https://www.google.com/maps/place/Academic+City+University+College/@5.6887607,-0.2087597,15z/data=!4m6!3m5!1s0xfdf9a0e15522909:0xd17d2158761e22ef!8m2!3d5.6887607!4d-0.2087597!16s%2Fg%2F11b8tw_jw6?entry=ttu&callback=initMap"></script>
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNNZ4IOHjf6m4dG_JSSfZQjxEmGQd5MQE&callback=console.debug&libraries=maps,marker&v=beta"></script>
 
 <!-- Javascript for form validation -->
 <script>
