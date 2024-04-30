@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Acity Counselling Service</title>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        <style>
+            /* Custom styles can be added here */
+        </style>
+    </head>
+<body>
+
+<!-- Navigation -->
+<nav class="bg-gray-800 py-4">
+    <div class="container mx-auto flex justify-between items-center px-4">
+        <div>
+            <a href="index.html" class="flex items-center text-white text-xl font-bold">
+                <img src="assets/img/currentAcityLogo.png" alt="Logo" class="h-8 mr-2">
+                Acity Counselling Service
+            </a>
+        </div>
+        <div>
+            <a href="about.html" class="text-gray-300 hover:text-white px-3 py-2">About Us</a>
+            <a href="resources.html" class="text-gray-300 hover:text-white px-3 py-2">Resources</a>
+            <a href="services.html" class="text-gray-300 hover:text-white px-3 py-2">Services</a>
+            <a href="contact.html" class="text-gray-300 hover:text-white px-3 py-2">Contact Us</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Appointment Form Section -->
+<section class="bg-gray-100 py-20">
+    <div class="container mx-auto px-4">
+        <div class="max-w-lg mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Book an Appointment</h2>
+            <form id="appointmentForm" class="space-y-4">
+                <div>
+                    <label for="name" class="block text-gray-700">Your Name:</label>
+                    <input type="text" id="name" name="name" class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500" required>
+                </div>
+                <div>
+                    <label for="rollNumber" class="block text-gray-700">Roll Number:</label>
+                    <input type="text" id="rollNumber" name="rollNumber" class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500" required>
+                </div>
+                <div>
+                    <label for="email" class="block text-gray-700">Email Address:</label>
+                    <input type="email" id="email" name="email" class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500" required>
+                    <p id="emailError" class="text-red-500 hidden">Please use your acity.edu.gh email account.</p>
+                </div>
+                <div>
+                    <label for="date" class="block text-gray-700">Preferred Date:</label>
+                    <input type="date" id="date" name="date" class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500" required>
+                    <p id="dateError" class="text-red-500 hidden">Sorry, this date is unavailable. Please choose another date.</p>
+                </div>
+                <div>
+                    <label for="time" class="block text-gray-700">Preferred Time:</label>
+                    <input type="time" id="time" name="time" class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500" required>
+                    <p id="timeError" class="text-red-500 hidden">Sorry, this time slot is unavailable. Please choose another time.</p>
+                </div>
+                <div>
+                    <label for="message" class="block text-gray-700">Message (Optional):</label>
+                    <textarea id="message" name="message" rows="4" class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:border-blue-500"></textarea>
+                </div>
+                <div>
+                    <button type="submit" class="bg-blue-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-600 transition duration-300">Submit Appointment Request</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- JavaScript for form validation and availability check -->
+<script>
+    const form = document.getElementById('appointmentForm');
+    const emailError = document.getElementById('emailError');
+    const dateError = document.getElementById('dateError');
+    const timeError = document.getElementById('timeError');
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const email = document.getElementById('email').value;
+        const date = document.getElementById('date').value;
+        const time = document.getElementById('time').value;
+
+        // Email validation
+        if (!email.endsWith('@acity.edu.gh')) {
+            emailError.classList.remove('hidden');
+            return;
+        } else {
+            emailError.classList.add('hidden');
+        }
+
+        // Date validation
+        const today = new Date();
+        const selectedDate = new Date(date);
+        if (selectedDate < today) {
+            dateError.classList.remove('hidden');
+            return;
+        } else {
+            dateError.classList.add('hidden');
+        }
+
+        // Time validation
+        const availableTimes = ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'];
+        if (!availableTimes.includes(time)) {
+            timeError.classList.remove('hidden');
+            return;
+        } else {
+            timeError.classList.add('hidden');
+        }
+
+        // Reset form
+        form.reset();
+
+        // Submit form
+        alert('Appointment request submitted successfully!');
+    });
+</script>
+
+<!-- JavaScript for smooth scrolling -->
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
+<!-- Footer -->
+<footer class="bg-gray-800 py-8">
+    <div class="container mx-auto px-4">
+        <div class="text-center">
+            <p class="text-white">&copy; 2024 Academic City University College Counselling Service. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
