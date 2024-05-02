@@ -18,3 +18,16 @@ setTimeout(() => {
 setTimeout(() => {
     typeWriter('typewriter3', 'Get the support you need from the counsellor', 50);
 }, 4000);
+
+// JavaScript for smooth scrolling
+$(document).ready(function() {
+    $('a[href^="#"]').on('click', function(event) {
+        var target = $(this.getAttribute('href'));
+        if (target.length) {
+            event.preventDefault();
+            $('html, body').stop().animate({
+                scrollTop: target.offset().top
+            }, 1000);
+        }
+    });
+});

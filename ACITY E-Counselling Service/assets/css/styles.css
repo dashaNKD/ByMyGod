@@ -1,26 +1,32 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+  position: relative;
+  background-image: url('assets/img/Mental Health.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-header {
-  background-color: #ff0000;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-}
-
-main {
-  padding: 20px;
-}
-
-footer {
-  background-color: #ff0000;
-  color: #fff;
-  padding: 10px;
-  text-align: center;
+.logo-watermark {
   position: fixed;
-  bottom: 0;
-  width: 100%;
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: -1;
+  bottom: 20px;
+  right: 20px;
+  width: 200px;
+  transform: rotate(30deg) scale(1.5);
+}
+
+/* Glassmorphism effect */
+.glassmorphism {
+  background-color: rgba(255, 255, 255, 0.3); /* Background color with transparency */
+  -webkit-backdrop-filter: blur(10px); /* Blur effect */
+  backdrop-filter: blur(10px); /* Blur effect */
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Box shadow */
+}
+
+/* Red button styles */
+.red-button {
+  background-color: #f44336; /* Red color */
 }
