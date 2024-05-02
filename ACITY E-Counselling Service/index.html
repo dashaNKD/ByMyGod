@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="custom.js"></script>
+    <script src="assets/js/script.js"></script>
     <style>
         /* Custom styles can be added here */
         body {
@@ -110,21 +111,6 @@
         </div>
     </div>
 </footer>
-
-<!-- JavaScript for smooth scrolling -->
-<script>
-    $(document).ready(function() {
-        $('a[href^="#"]').on('click', function(event) {
-            var target = $(this.getAttribute('href'));
-            if (target.length) {
-                event.preventDefault();
-                $('html, body').stop().animate({
-                    scrollTop: target.offset().top
-                }, 1000);
-            }
-        });
-    });
-</script>
 
 </body>
 </html>
